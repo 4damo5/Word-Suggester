@@ -1,4 +1,3 @@
-
 import requests
 from docx import Document
 import doc_test as dt
@@ -36,8 +35,8 @@ for word in dt.sorted_count_dict.keys():
     response = requests.get(api_url, headers={'X-Api-Key': open('key.txt').read()}) #*** REMOVE API KEY WHEN ADDING TO GITHUB
     if response.status_code == requests.codes.ok:
         if response.json()["synonyms"] != []:
-            print(f'\n{response.json()["word"].capitalize()}')
-            print('='*10)
+            print(f'\n{response.json()["word"].capitalize()}: Frequency = {dt.sorted_count_dict[word]}')
+            print('='*25)
             try:
                 for syns in range(dt.sorted_count_dict[word]):
                     print(syns, response.json()["synonyms"][syns])
