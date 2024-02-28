@@ -4,4 +4,4 @@ Essentially what this does, is it takes a .docx file and looks for words that re
 
 It is a bit messy, but it works.
 
-Make sure you do <pip install python-docx>
+Make sure you do `pip install python-docx`
