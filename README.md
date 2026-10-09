@@ -1,11 +1,16 @@
 # Word-Suggester
 
-Essentially, what this does is it takes a .docx file and looks for words that repeat.
+Reads a `.docx` essay, finds words you repeat too often, and suggests synonyms using the [API Ninjas thesaurus](https://api-ninjas.com/api/thesaurus).
 
-It then suggests alternatives using a [thesaurus API](https://api-ninjas.com/api/thesaurus) (that's kinda meh b/c getting a Merriam Webster API key is annoying and I don't want to apply for it)
+- Skips headings (paragraphs much shorter than average), capitalized words, and a list of common words (`common_words.txt`)
+- Ranks repeated words by frequency, then steps through each with suggested replacements
 
-It is a bit messy, but it works.
+## Usage
+```
+pip install python-docx requests
+```
+1. Put your API Ninjas key in `key.txt` (not committed).
+2. Set the document name in `doc_test.py`.
+3. `python3 synonym.py`
 
-Make sure you do `pip install python-docx`, then run synonyms.py
-
-It will go through each word and its synonyms, but it might be a bit taxing if the essay runs long
+Long essays make one API call per repeated word, so they take a while.
